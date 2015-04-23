@@ -10,11 +10,11 @@ html(lang='en', ng-app='checklist')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
   body
-    include views/nav
+    include views/nav/nav
     .container-fluid
       .row
         .col-xs-12
-          h1 Checklist
+          div(ui-view)
 
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
