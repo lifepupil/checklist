@@ -1,0 +1,14 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') Checklist
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li: a(href='#'): i.fa.fa-user-plus &nbsp; Register
+        li: a(href='#'): i.fa.fa-key &nbsp; Login
+        li: a(href='#'): i.fa.fa-sign-out &nbsp; Logout
