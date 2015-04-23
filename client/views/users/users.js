@@ -9,18 +9,14 @@ angular.module('checklist')
   $scope.submit = function(user) {
     if ($scope.name === 'register') {
       User.register(user)
-      .then(function(data) {
-        console.log(data);
+      .then(function() {
+        $state.go('login');
       })
       .catch(function(err) {
         console.error(err);
       });
-
     } else {
       User.login(user)
-      .then(function(data) {
-        console.log(data);
-      })
       .catch(function(err) {
         console.error(err);
       });
