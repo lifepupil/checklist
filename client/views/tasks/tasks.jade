@@ -1,0 +1,22 @@
+h3 TASKS
+
+//- h1 {{name | uppercase}}
+
+.row
+  .col-xs-12
+    form(name='taskForm', novalidate)
+      .form-group
+        label(for='task') Title
+        input.form-control#title(type='text', name='task', ng-model='task.title')
+.row
+  .col-xs-4
+      .form-group
+        label(for='dueDate') Due Date
+        input.form-control#dueDate(type='date', name='dueDate', ng-model='task.due')
+      .form-group
+        label(for='priority') Priority
+        select.form-control#priority(name="priority" ng-model="task.priority")
+          option(value="high") High
+          option(value="medium") Medium
+          option(value="low") Low
+        button.btn.btn-success(type='submit', ng-click='addTask(task)') Add Task

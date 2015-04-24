@@ -15,6 +15,7 @@ angular.module('checklist')
 
 
   $scope.logout = function() {
+    // THIS CALLS THE FUNCTION IN THE User FACTORY
     User.logout();
   };
 }]);
