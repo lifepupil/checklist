@@ -19,4 +19,26 @@ h3 TASKS
           option(value="high") High
           option(value="medium") Medium
           option(value="low") Low
-        button.btn.btn-success(type='submit', ng-click='addTask(task)') Add Task
+        button.btn.btn-success(type='submit', ng-hide='task.$id', ng-click='addTask(task)') Add Task
+        // IF THERE IS AN $id (WHICH IS THE CASE WHEN THE TASK IS IN THE DATABASE) THEN $id WILL BE TRUE
+        button.btn.btn-success(type='submit', ng-show='task.$id', ng-click='updateTask(task)') Update
+
+table.table.table-striped
+  thead
+    tr
+      th Edit
+      th Delete
+      th(ng-click='sort("title")') Title
+      th(ng-click='sort("due")') Due Date
+      th(ng-click='sort("priority")') Priority
+      th(ng-click='sort("isComplete")') Complete?
+      th(ng-click='sort("createdAt")') Created At
+  tbody
+    tr(ng-repeat='t in afTasks | orderBy: taskOrder', ng-class='{completed:t.isComplete}')
+      td: button.btn.btn-info.btn.xs(ng-click='editTask(t)') Edit
+      td: button.btn.btn-danger.btn.xs(ng-click='deleteTask(t)') Delete
+      td {{t.title}}
+      td {{t.due | date: 'yyyy-MM-dd'}}
+      td {{t.priority}}
+      td: input(type='checkbox', ng-model= 't.isComplete', ng-click='toggleComplete(t)')
+      td {{t.createdAt | date: 'yyyy-MM-dd'}}

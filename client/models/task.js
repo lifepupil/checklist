@@ -14,12 +14,24 @@ angular.module('checklist')
   // CAN ALSO DO BELOW (SORTA)
   // var fbTasks = 'https://checklist-cdr.firebaseio.com/users/simplelogin3/tasks';
     afTasks = $firebaseArray(fbTasks);
+    return afTasks;
+  }
+
+  function edit(task) {
+    // return afTasks
+  }
+
+  function save(task) {
+    return afTasks.$save(task);
   }
 
   function add(task) {
-    init();
     return afTasks.$add(task);
   }
 
-  return {add: add};
+  function deleteTask(task) {
+    return afTasks.$remove(task);
+  }
+
+  return {add: add, init: init, deleteTask: deleteTask, save: save, edit: edit};
 }]);

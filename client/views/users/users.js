@@ -8,7 +8,7 @@ angular.module('checklist')
 
   $scope.submit = function(user) {
     if ($scope.name === 'register') {
-      User.dog(user)
+      User.register(user)
       .then(function() {
         // THIS NEXT LINE SENDS YOU TO THE LOGIN PAGE IF REGISTRATION IS SUCCESSFUL
         $state.go('login');
